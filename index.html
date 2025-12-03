@@ -3,190 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorial Microsoft Excel - Impara Divertendoti!</title>
+    <title>Tutorial Microsoft Excel</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{
-            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-            background:linear-gradient(135deg,#1d7a46 0%,#33a357 50%,#8fce00 100%);
-            color:#333;min-height:100vh;
-        }
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#1d7a46 0%,#33a357 50%,#8fce00 100%);color:#333;min-height:100vh}
         .container{max-width:1200px;margin:0 auto;padding:20px}
-        header{
-            background:#fff;border-radius:20px;padding:30px;text-align:center;
-            margin-bottom:30px;box-shadow:0 10px 30px rgba(33,115,70,.3);
-            border-top:5px solid #217346;
-        }
-        h1{color:#217346;font-size:2.5em;margin-bottom:10px;text-shadow:2px 2px 4px rgba(33,115,70,.1)}
+        header{background:#fff;border-radius:20px;padding:30px;text-align:center;margin-bottom:30px;box-shadow:0 10px 30px rgba(33,115,70,.3);border-top:5px solid #217346}
+        h1{color:#217346;font-size:2.5em;margin-bottom:10px}
         .subtitle{color:#555;font-size:1.2em}
-        .student-badge{
-            background:linear-gradient(135deg,#217346 0%,#33a357 100%);
-            color:#fff;padding:10px 20px;border-radius:50px;display:inline-block;
-            margin-bottom:15px;font-weight:bold;box-shadow:0 3px 10px rgba(33,115,70,.3);
-        }
-        nav{
-            display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:30px;
-        }
-        .nav-btn{
-            background:#fff;border:2px solid #217346;padding:15px 30px;border-radius:50px;
-            font-size:1em;font-weight:bold;cursor:pointer;transition:.3s;
-            box-shadow:0 5px 15px rgba(33,115,70,.2);color:#217346;
-        }
+        .student-badge{background:linear-gradient(135deg,#217346 0%,#33a357 100%);color:#fff;padding:10px 20px;border-radius:50px;display:inline-block;margin-bottom:15px;font-weight:bold;box-shadow:0 3px 10px rgba(33,115,70,.3)}
+        nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:30px}
+        .nav-btn{background:#fff;border:2px solid #217346;padding:15px 30px;border-radius:50px;font-size:1em;font-weight:bold;cursor:pointer;transition:.3s;box-shadow:0 5px 15px rgba(33,115,70,.2);color:#217346}
         .nav-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(33,115,70,.3);background:#f0f8f4}
-        .nav-btn.active{
-            background:linear-gradient(135deg,#217346 0%,#33a357 100%);
-            color:#fff;border-color:#217346;
-        }
+        .nav-btn.active{background:linear-gradient(135deg,#217346 0%,#33a357 100%);color:#fff}
         .content-section{display:none}
         .content-section.active{display:block;animation:fadeIn .5s}
         @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        .lessons-grid{
-            display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;
-        }
-        .lesson-card{
-            background:#fff;border-radius:15px;padding:25px;box-shadow:0 5px 20px rgba(33,115,70,.15);
-            cursor:pointer;transition:.3s;display:flex;align-items:center;gap:20px;
-            border:3px solid transparent;border-left:5px solid #217346;
-        }
-        .lesson-card:hover{
-            transform:translateY(-5px);box-shadow:0 10px 30px rgba(33,115,70,.25);
-            border-color:#33a357;background:linear-gradient(to right,#fff 0%,#f0fdf4 100%);
-        }
-        .lesson-card.completed{
-            border-color:#33a357;background:linear-gradient(to right,#f0fdf4 0%,#dcfce7 100%);
-        }
-        .lesson-checkbox{
-            width:40px;height:40px;border:3px solid #217346;border-radius:10px;
-            display:flex;align-items:center;justify-content:center;font-size:1.8em;flex-shrink:0;background:#fff;
-        }
+        .lessons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+        .lesson-card{background:#fff;border-radius:15px;padding:25px;box-shadow:0 5px 20px rgba(33,115,70,.15);cursor:pointer;transition:.3s;display:flex;align-items:center;gap:20px;border:3px solid transparent;border-left:5px solid #217346}
+        .lesson-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(33,115,70,.25);border-color:#33a357;background:linear-gradient(to right,#fff 0%,#f0fdf4 100%)}
+        .lesson-card.completed{border-color:#33a357;background:linear-gradient(to right,#f0fdf4 0%,#dcfce7 100%)}
+        .lesson-checkbox{width:40px;height:40px;border:3px solid #217346;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.8em;flex-shrink:0;background:#fff}
         .lesson-card.completed .lesson-checkbox{background:#33a357;border-color:#33a357;color:#fff}
         .lesson-info{flex:1}
-        .lesson-number{
-            background:linear-gradient(135deg,#217346 0%,#33a357 100%);
-            color:#fff;width:30px;height:30px;border-radius:50%;
-            display:inline-flex;align-items:center;justify-content:center;
-            font-weight:bold;font-size:.9em;margin-right:10px;box-shadow:0 2px 8px rgba(33,115,70,.3);
-        }
+        .lesson-number{background:linear-gradient(135deg,#217346 0%,#33a357 100%);color:#fff;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;font-size:.9em;margin-right:10px}
         .lesson-title{color:#1a5c37;font-size:1.3em;font-weight:bold;margin-bottom:5px}
-        .lesson-page{
-            background:#fff;border-radius:20px;padding:30px;
-            box-shadow:0 10px 30px rgba(33,115,70,.2);display:none;border-top:5px solid #217346;
-        }
-        .lesson-page.active{
-            display:grid;grid-template-columns:1fr 300px;gap:30px;animation:fadeIn .5s;
-        }
-        .back-btn{
-            background:linear-gradient(135deg,#217346 0%,#33a357 100%);
-            color:#fff;border:none;padding:12px 25px;border-radius:10px;
-            font-size:1em;cursor:pointer;margin-bottom:20px;transition:.3s;
-            box-shadow:0 3px 10px rgba(33,115,70,.3);
-        }
-        .back-btn:hover{
-            background:linear-gradient(135deg,#1a5c37 0%,#2b8a4a 100%);
-            transform:translateX(-5px);box-shadow:0 5px 15px rgba(33,115,70,.4);
-        }
-        .lesson-sidebar{
-            background:linear-gradient(to bottom,#f0fdf4 0%,#dcfce7 100%);
-            padding:25px;border-radius:15px;position:sticky;top:20px;
-            height:fit-content;border:2px solid #bbf7d0;
-        }
-        .section-block{
-            background:linear-gradient(to right,#f0fdf4 0%,#fff 100%);
-            padding:25px;border-radius:15px;margin-bottom:25px;
-            border-left:5px solid #217346;box-shadow:0 3px 10px rgba(33,115,70,.1);
-        }
+        .lesson-page{background:#fff;border-radius:20px;padding:30px;box-shadow:0 10px 30px rgba(33,115,70,.2);display:none;border-top:5px solid #217346}
+        .lesson-page.active{display:grid;grid-template-columns:1fr 300px;gap:30px;animation:fadeIn .5s}
+        .back-btn{background:linear-gradient(135deg,#217346 0%,#33a357 100%);color:#fff;border:none;padding:12px 25px;border-radius:10px;font-size:1em;cursor:pointer;margin-bottom:20px;transition:.3s}
+        .back-btn:hover{background:linear-gradient(135deg,#1a5c37 0%,#2b8a4a 100%);transform:translateX(-5px)}
+        .lesson-sidebar{background:linear-gradient(to bottom,#f0fdf4 0%,#dcfce7 100%);padding:25px;border-radius:15px;position:sticky;top:20px;height:fit-content;border:2px solid #bbf7d0}
+        .section-block{background:linear-gradient(to right,#f0fdf4 0%,#fff 100%);padding:25px;border-radius:15px;margin-bottom:25px;border-left:5px solid #217346;box-shadow:0 3px 10px rgba(33,115,70,.1)}
         .section-block h3{color:#217346;margin-bottom:15px;font-size:1.5em}
         .section-block p{line-height:1.8;margin-bottom:8px}
-        .section-block ul,.section-block ol{margin-left:20px;line-height:1.8;margin-bottom:8px}
+        .section-block ul{margin-left:20px;line-height:1.8;margin-bottom:8px}
         .section-block li{margin-bottom:4px}
-        .example-box{
-            background:#fff8e1;border-left:4px solid #ffa726;
-            padding:15px;margin:12px 0;border-radius:8px;
-        }
+        .example-box{background:#fff8e1;border-left:4px solid #ffa726;padding:15px;margin:12px 0;border-radius:8px}
         .example-box strong{color:#f57c00;display:block;margin-bottom:6px}
-        .tip-box{
-            background:#e3f2fd;border-left:4px solid #2196f3;
-            padding:15px;margin:12px 0;border-radius:8px;
-        }
+        .tip-box{background:#e3f2fd;border-left:4px solid #2196f3;padding:15px;margin:12px 0;border-radius:8px}
         .tip-box strong{color:#1976d2;display:block;margin-bottom:6px}
-        .code-example{
-            background:#2d2d2d;color:#8fce00;padding:10px 15px;
-            border-radius:8px;font-family:'Courier New',monospace;
-            margin:10px 0;border-left:4px solid #217346;white-space:pre-wrap;
-        }
-        .video-placeholder{
-            background:linear-gradient(135deg,#217346 0%,#33a357 50%,#8fce00 100%);
-            color:#fff;padding:60px 20px;border-radius:15px;text-align:center;
-            margin:15px 0;font-size:1.1em;box-shadow:0 5px 20px rgba(33,115,70,.3);
-            position:relative;overflow:hidden;
-        }
-        .video-placeholder::before{
-            content:'▶';position:absolute;top:50%;left:50%;
-            transform:translate(-50%,-50%);font-size:3em;opacity:.25;
-        }
-        .exercise-content{
-            background:linear-gradient(to right,#fef3c7 0%,#fef9e6 100%);
-            padding:20px;border-radius:10px;border-left:5px solid #f59e0b;
-        }
-        .exercise-content h4{color:#d97706;margin-bottom:8px}
-        .exercise-list{line-height:1.8}
-        .sidebar-check{
-            background:#fff;padding:15px;margin:10px 0;border-radius:10px;
-            display:flex;align-items:center;gap:12px;cursor:pointer;transition:.3s;
-            border:2px solid #bbf7d0;
-        }
+        .sidebar-check{background:#fff;padding:15px;margin:10px 0;border-radius:10px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:.3s;border:2px solid #bbf7d0}
         .sidebar-check:hover{border-color:#217346;transform:translateX(3px);background:#f0fdf4}
-        .sidebar-check.checked{
-            background:linear-gradient(to right,#dcfce7 0%,#bbf7d0 100%);
-            border-color:#33a357;
-        }
-        .mini-checkbox{
-            width:25px;height:25px;border:2px solid #217346;border-radius:6px;
-            display:flex;align-items:center;justify-content:center;font-size:1.2em;
-        }
+        .sidebar-check.checked{background:linear-gradient(to right,#dcfce7 0%,#bbf7d0 100%);border-color:#33a357}
+        .mini-checkbox{width:25px;height:25px;border:2px solid #217346;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.2em}
         .sidebar-check.checked .mini-checkbox{background:#33a357;border-color:#33a357;color:#fff}
-        .other-section{
-            background:#fff;border-radius:20px;padding:30px;
-            box-shadow:0 10px 30px rgba(33,115,70,.2);border-top:5px solid #217346;
-        }
-        .glossary-term{
-            background:linear-gradient(to right,#f0fdf4 0%,#fff 100%);
-            padding:20px;margin:10px 0;border-radius:10px;border-left:5px solid #217346;
-        }
-        .glossary-term strong{color:#217346;font-size:1.1em;display:block;margin-bottom:5px}
-        .shortcut{
-            background:linear-gradient(to right,#f0fdf4 0%,#fff 100%);
-            padding:10px 15px;margin:6px 0;border-radius:10px;border-left:3px solid #217346;
-        }
-        .shortcut-header{
-            display:flex;justify-content:space-between;align-items:center;
-        }
-        .shortcut-key{
-            background:linear-gradient(135deg,#217346 0%,#33a357 100%);
-            color:#fff;padding:4px 8px;border-radius:6px;
-            font-family:'Courier New',monospace;font-size:.85em;
-        }
-        .shortcut-desc{font-size:.85em;color:#444;margin-top:3px}
-        .category{margin-bottom:25px}
-        .category h3{
-            color:#217346;margin-bottom:10px;padding-bottom:8px;
-            border-bottom:3px solid #217346;font-size:1.15em;
-        }
-        .progress-bar{
-            background:#e5e7eb;height:30px;border-radius:15px;margin:20px 0;
-            overflow:hidden;border:2px solid #bbf7d0;
-        }
-        .progress-fill{
-            background:linear-gradient(90deg,#217346 0%,#33a357 50%,#8fce00 100%);
-            height:100%;width:0%;transition:.5s;display:flex;
-            align-items:center;justify-content:center;color:#fff;font-weight:bold;
-        }
-        @media(max-width:768px){
-            .lesson-page.active{grid-template-columns:1fr}
-            .lesson-sidebar{position:relative;top:0;margin-top:20px}
-            h1{font-size:1.8em}
-            .nav-btn{padding:10px 18px;font-size:.9em}
-        }
+        .other-section{background:#fff;border-radius:20px;padding:30px;box-shadow:0 10px 30px rgba(33,115,70,.2);border-top:5px solid #217346}
+        .progress-bar{background:#e5e7eb;height:30px;border-radius:15px;margin:20px 0;overflow:hidden;border:2px solid #bbf7d0}
+        .progress-fill{background:linear-gradient(90deg,#217346 0%,#33a357 50%,#8fce00 100%);height:100%;width:0%;transition:.5s;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold}
+        @media(max-width:768px){.lesson-page.active{grid-template-columns:1fr}.lesson-sidebar{position:relative;top:0;margin-top:20px}}
     </style>
 </head>
 <body>
@@ -203,9 +67,10 @@
     <nav>
         <button class="nav-btn active" onclick="showMainSection('home', event)">📚 Lezioni</button>
         <button class="nav-btn" onclick="showMainSection('glossario', event)">📖 Glossario</button>
-        <button class="nav-btn" onclick="showMainSection('comandi', event)">⌨️ Comandi Rapidi</button>
+        <button class="nav-btn" onclick="showMainSection('comandi', event)">⌨️ Comandi</button>
     </nav>
 
+    <!-- HOME -->
     <div id="home" class="content-section active">
         <div class="other-section">
             <h2 style="color:#217346;margin-bottom:20px">Scegli una lezione per iniziare</h2>
@@ -213,140 +78,285 @@
                 <div class="lesson-card" onclick="openLesson(1)" data-lesson="1">
                     <div class="lesson-checkbox"></div>
                     <div class="lesson-info">
-                        <div class="lesson-title">
-                            <span class="lesson-number">1</span> Introduzione a Microsoft Excel
-                        </div>
-                        <p>Cos'è Excel, interfaccia e primi passi.</p>
+                        <div class="lesson-title"><span class="lesson-number">1</span> Introduzione a Excel</div>
+                        <p>Cos'è Excel e come funziona</p>
                     </div>
                 </div>
                 <div class="lesson-card" onclick="openLesson(2)" data-lesson="2">
                     <div class="lesson-checkbox"></div>
                     <div class="lesson-info">
-                        <div class="lesson-title">
-                            <span class="lesson-number">2</span> Celle, Righe e Colonne
-                        </div>
-                        <p>Struttura del foglio, intervalli e selezioni.</p>
+                        <div class="lesson-title"><span class="lesson-number">2</span> Celle e Intervalli</div>
+                        <p>Righe, colonne e navigazione</p>
                     </div>
                 </div>
                 <div class="lesson-card" onclick="openLesson(3)" data-lesson="3">
                     <div class="lesson-checkbox"></div>
                     <div class="lesson-info">
-                        <div class="lesson-title">
-                            <span class="lesson-number">3</span> Formule di Base
-                        </div>
-                        <p>SOMMA, MEDIA, MAX, MIN e esempi.</p>
+                        <div class="lesson-title"><span class="lesson-number">3</span> Formule Base</div>
+                        <p>SOMMA, MEDIA, MAX, MIN</p>
                     </div>
                 </div>
                 <div class="lesson-card" onclick="openLesson(4)" data-lesson="4">
                     <div class="lesson-checkbox"></div>
                     <div class="lesson-info">
-                        <div class="lesson-title">
-                            <span class="lesson-number">4</span> Formattazione
-                        </div>
-                        <p>Colori, bordi e formattazione condizionale.</p>
+                        <div class="lesson-title"><span class="lesson-number">4</span> Formattazione</div>
+                        <p>Colori, bordi e stili</p>
                     </div>
                 </div>
                 <div class="lesson-card" onclick="openLesson(5)" data-lesson="5">
                     <div class="lesson-checkbox"></div>
                     <div class="lesson-info">
-                        <div class="lesson-title">
-                            <span class="lesson-number">5</span> Grafici
-                        </div>
-                        <p>Creare e personalizzare grafici.</p>
+                        <div class="lesson-title"><span class="lesson-number">5</span> Grafici</div>
+                        <p>Visualizzare i dati</p>
                     </div>
                 </div>
                 <div class="lesson-card" onclick="openLesson(6)" data-lesson="6">
                     <div class="lesson-checkbox"></div>
                     <div class="lesson-info">
-                        <div class="lesson-title">
-                            <span class="lesson-number">6</span> Filtri
-                        </div>
-                        <p>Ordinamento e filtri su dati.</p>
+                        <div class="lesson-title"><span class="lesson-number">6</span> Filtri</div>
+                        <p>Ordinare e filtrare</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="glossario" class="content-section">
-        <div class="other-section">
-            <h2 style="color:#217346;margin-bottom:20px">📖 Glossario</h2>
-            <div class="glossary-term">
-                <strong>Cella</strong>
-                Unità base del foglio identificata da lettera+numero (es. A1).
+    <!-- LEZIONE 1 -->
+    <div id="lesson-1" class="lesson-page">
+        <div class="lesson-content">
+            <button class="back-btn" onclick="backToHome()">← Torna alle lezioni</button>
+            <h2 style="color:#217346;margin-bottom:20px">Lezione 1: Introduzione a Excel</h2>
+            <div class="section-block">
+                <h3>📖 Spiegazione</h3>
+                <p>Excel è un foglio di calcolo dove puoi inserire dati, fare calcoli e creare grafici.</p>
+                <div class="example-box"><strong>📌 Esempio</strong>Puoi usarlo per gestire voti, spese, orari e molto altro.</div>
+                <p><strong>Elementi principali:</strong></p>
+                <ul>
+                    <li>Barra multifunzione (comandi)</li>
+                    <li>Celle (A1, B2...)</li>
+                    <li>Barra della formula</li>
+                    <li>Fogli di lavoro</li>
+                </ul>
+                <div class="tip-box"><strong>💡 Suggerimento</strong>Usa Ctrl+Z per annullare errori!</div>
             </div>
-            <div class="glossary-term">
-                <strong>Formula</strong>
-                Calcolo che inizia con = (es. =A1+B1).
+        </div>
+        <div class="lesson-sidebar">
+            <h3 style="color:#217346;margin-bottom:15px">✅ Checklist</h3>
+            <div class="sidebar-check" onclick="toggleCheck(this,1,'spiegazione')">
+                <div class="mini-checkbox"></div><span>Spiegazione letta</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,1,'video')">
+                <div class="mini-checkbox"></div><span>Video visto</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,1,'esercizio')">
+                <div class="mini-checkbox"></div><span>Esercizio fatto</span>
             </div>
         </div>
     </div>
 
+    <!-- LEZIONE 2 -->
+    <div id="lesson-2" class="lesson-page">
+        <div class="lesson-content">
+            <button class="back-btn" onclick="backToHome()">← Torna alle lezioni</button>
+            <h2 style="color:#217346;margin-bottom:20px">Lezione 2: Celle e Intervalli</h2>
+            <div class="section-block">
+                <h3>📖 Spiegazione</h3>
+                <p>Le celle sono identificate da lettera (colonna) + numero (riga). Es: A1, C5</p>
+                <p>Un intervallo è un gruppo di celle: A1:C3</p>
+                <div class="tip-box"><strong>💡 Navigazione veloce</strong>Ctrl+Frecce per saltare rapidamente!</div>
+            </div>
+        </div>
+        <div class="lesson-sidebar">
+            <h3 style="color:#217346;margin-bottom:15px">✅ Checklist</h3>
+            <div class="sidebar-check" onclick="toggleCheck(this,2,'spiegazione')">
+                <div class="mini-checkbox"></div><span>Spiegazione letta</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,2,'video')">
+                <div class="mini-checkbox"></div><span>Video visto</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,2,'esercizio')">
+                <div class="mini-checkbox"></div><span>Esercizio fatto</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- LEZIONE 3 -->
+    <div id="lesson-3" class="lesson-page">
+        <div class="lesson-content">
+            <button class="back-btn" onclick="backToHome()">← Torna alle lezioni</button>
+            <h2 style="color:#217346;margin-bottom:20px">Lezione 3: Formule Base</h2>
+            <div class="section-block">
+                <h3>📖 Spiegazione</h3>
+                <p>Le formule iniziano sempre con =</p>
+                <p><strong>Funzioni principali:</strong></p>
+                <ul>
+                    <li>=SOMMA(A1:A5) → somma</li>
+                    <li>=MEDIA(A1:A5) → media</li>
+                    <li>=MAX(A1:A5) → massimo</li>
+                    <li>=MIN(A1:A5) → minimo</li>
+                </ul>
+                <div class="tip-box"><strong>💡 AutoSomma</strong>Premi Alt+= per sommare velocemente!</div>
+            </div>
+        </div>
+        <div class="lesson-sidebar">
+            <h3 style="color:#217346;margin-bottom:15px">✅ Checklist</h3>
+            <div class="sidebar-check" onclick="toggleCheck(this,3,'spiegazione')">
+                <div class="mini-checkbox"></div><span>Spiegazione letta</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,3,'video')">
+                <div class="mini-checkbox"></div><span>Video visto</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,3,'esercizio')">
+                <div class="mini-checkbox"></div><span>Esercizio fatto</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- LEZIONE 4 -->
+    <div id="lesson-4" class="lesson-page">
+        <div class="lesson-content">
+            <button class="back-btn" onclick="backToHome()">← Torna alle lezioni</button>
+            <h2 style="color:#217346;margin-bottom:20px">Lezione 4: Formattazione</h2>
+            <div class="section-block">
+                <h3>📖 Spiegazione</h3>
+                <p>Rendi i tuoi fogli più leggibili con:</p>
+                <ul>
+                    <li>Grassetto, corsivo, colori</li>
+                    <li>Bordi e sfondo celle</li>
+                    <li>Formati numero (valuta, percentuale)</li>
+                    <li>Formattazione condizionale</li>
+                </ul>
+                <div class="tip-box"><strong>💡 Scorciatoia</strong>Ctrl+1 apre le opzioni di formato!</div>
+            </div>
+        </div>
+        <div class="lesson-sidebar">
+            <h3 style="color:#217346;margin-bottom:15px">✅ Checklist</h3>
+            <div class="sidebar-check" onclick="toggleCheck(this,4,'spiegazione')">
+                <div class="mini-checkbox"></div><span>Spiegazione letta</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,4,'video')">
+                <div class="mini-checkbox"></div><span>Video visto</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,4,'esercizio')">
+                <div class="mini-checkbox"></div><span>Esercizio fatto</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- LEZIONE 5 -->
+    <div id="lesson-5" class="lesson-page">
+        <div class="lesson-content">
+            <button class="back-btn" onclick="backToHome()">← Torna alle lezioni</button>
+            <h2 style="color:#217346;margin-bottom:20px">Lezione 5: Grafici</h2>
+            <div class="section-block">
+                <h3>📖 Spiegazione</h3>
+                <p>I grafici trasformano numeri in immagini:</p>
+                <ul>
+                    <li>Colonne: confrontare valori</li>
+                    <li>Linee: andamenti nel tempo</li>
+                    <li>Torta: percentuali</li>
+                </ul>
+                <div class="example-box"><strong>📌 Esempio</strong>Grafico dei voti per materia</div>
+            </div>
+        </div>
+        <div class="lesson-sidebar">
+            <h3 style="color:#217346;margin-bottom:15px">✅ Checklist</h3>
+            <div class="sidebar-check" onclick="toggleCheck(this,5,'spiegazione')">
+                <div class="mini-checkbox"></div><span>Spiegazione letta</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,5,'video')">
+                <div class="mini-checkbox"></div><span>Video visto</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,5,'esercizio')">
+                <div class="mini-checkbox"></div><span>Esercizio fatto</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- LEZIONE 6 -->
+    <div id="lesson-6" class="lesson-page">
+        <div class="lesson-content">
+            <button class="back-btn" onclick="backToHome()">← Torna alle lezioni</button>
+            <h2 style="color:#217346;margin-bottom:20px">Lezione 6: Filtri e Ordinamento</h2>
+            <div class="section-block">
+                <h3>📖 Spiegazione</h3>
+                <p><strong>Ordinamento:</strong> riordina le righe (A-Z, crescente...)</p>
+                <p><strong>Filtri:</strong> mostra solo le righe che rispettano una condizione</p>
+                <div class="tip-box"><strong>💡 Scorciatoia</strong>Ctrl+Shift+L attiva i filtri!</div>
+            </div>
+        </div>
+        <div class="lesson-sidebar">
+            <h3 style="color:#217346;margin-bottom:15px">✅ Checklist</h3>
+            <div class="sidebar-check" onclick="toggleCheck(this,6,'spiegazione')">
+                <div class="mini-checkbox"></div><span>Spiegazione letta</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,6,'video')">
+                <div class="mini-checkbox"></div><span>Video visto</span>
+            </div>
+            <div class="sidebar-check" onclick="toggleCheck(this,6,'esercizio')">
+                <div class="mini-checkbox"></div><span>Esercizio fatto</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOSSARIO -->
+    <div id="glossario" class="content-section">
+        <div class="other-section">
+            <h2 style="color:#217346;margin-bottom:20px">📖 Glossario Excel</h2>
+            <p><strong>Cella:</strong> unità base identificata da lettera+numero (A1)</p>
+            <p><strong>Formula:</strong> calcolo che inizia con =</p>
+            <p><strong>Funzione:</strong> formula predefinita (SOMMA, MEDIA...)</p>
+            <p><strong>Intervallo:</strong> gruppo di celle (A1:C10)</p>
+        </div>
+    </div>
+
+    <!-- COMANDI -->
     <div id="comandi" class="content-section">
         <div class="other-section">
             <h2 style="color:#217346;margin-bottom:20px">⌨️ Comandi Rapidi</h2>
-            <div class="category">
-                <h3>Navigazione</h3>
-                <div class="shortcut">
-                    <div class="shortcut-header">
-                        <span>Andare all'inizio</span>
-                        <span class="shortcut-key">Ctrl + Home</span>
-                    </div>
-                </div>
-            </div>
+            <p><strong>Ctrl+C:</strong> Copia</p>
+            <p><strong>Ctrl+V:</strong> Incolla</p>
+            <p><strong>Ctrl+Z:</strong> Annulla</p>
+            <p><strong>Ctrl+S:</strong> Salva</p>
+            <p><strong>Alt+=:</strong> AutoSomma</p>
+            <p><strong>Ctrl+Shift+L:</strong> Filtri</p>
         </div>
     </div>
 </div>
 
 <script>
-    // URL del tuo Google Apps Script (lo genererai al PASSO 3)
-    const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbyXuZuBdT0DfCsXdBpPQPCsp-nkNr80Asf_TdncrQfNC7NGTia5cEDJFRNcmBL5Zs9-/exec';
+const TRACKING_URL = 'https://script.google.com/macros/s/IL_TUO_URL_SCRIPT/exec';
+
+let studentData = {id:'',nome:'',cognome:'',classe:'',email:''};
+
+function getParam(name){
+    const url = new URLSearchParams(window.location.search);
+    return url.get(name) || '';
+}
+
+function initStudent(){
+    studentData.id = getParam('id');
+    studentData.nome = getParam('nome');
+    studentData.cognome = getParam('cognome');
+    studentData.classe = getParam('classe');
+    studentData.email = getParam('email');
     
-    let studentData = {
-        id: '',
-        nome: '',
-        cognome: '',
-        classe: '',
-        email: ''
-    };
-
-    // Leggi parametri URL
-    function getUrlParameter(name) {
-        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        var results = regex.exec(location.search);
-        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    if(studentData.nome && studentData.cognome){
+        document.getElementById('student-badge').textContent = `👤 ${studentData.nome} ${studentData.cognome} - ${studentData.classe}`;
+        localStorage.setItem(`student_${studentData.id}`, JSON.stringify(studentData));
+        sendTracking('ACCESSO', 'Apertura tutorial');
+    } else {
+        document.getElementById('student-badge').textContent = '⚠️ Link non valido';
     }
+    updateProgress();
+}
 
-    // Inizializza studente
-    function initStudent() {
-        const studentId = getUrlParameter('id');
-        const nome = getUrlParameter('nome');
-        const cognome = getUrlParameter('cognome');
-        const classe = getUrlParameter('classe');
-        const email = getUrlParameter('email');
-        
-        if (studentId && nome && cognome) {
-            studentData = { id: studentId, nome, cognome, classe, email };
-            document.getElementById('student-badge').textContent = `👤 ${nome} ${cognome} - ${classe}`;
-            
-            // Salva in localStorage con ID univoco
-            const storageKey = `student_${studentId}`;
-            localStorage.setItem(storageKey, JSON.stringify(studentData));
-            
-            // Traccia accesso
-            sendToTracking('ACCESSO', 'Apertura tutorial');
-            updateProgress();
-        } else {
-            document.getElementById('student-badge').textContent = '⚠️ Link non valido';
-        }
-    }
-
-    // Invia dati al Google Sheet
-    function sendToTracking(azione, dettagli) {
-        if (!studentData.id) return;
-        
-        const data = {
+function sendTracking(azione, dettagli){
+    if(!studentData.id) return;
+    fetch(TRACKING_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify({
             timestamp: new Date().toLocaleString('it-IT'),
             id: studentData.id,
             nome: studentData.nome,
@@ -355,56 +365,89 @@
             email: studentData.email,
             azione: azione,
             dettagli: dettagli
-        };
-        
-        fetch(TRACKING_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data)
-        }).catch(err => console.log('Tracking:', err));
-    }
+        })
+    }).catch(e=>console.log('Tracking:', e));
+}
 
-    function updateProgress() {
-        if (!studentData.id) return;
-        
-        const storageKey = `student_${studentData.id}`;
-        const totalChecks = 18; // 6 lezioni × 3 checklist
-        let completedChecks = 0;
+function showMainSection(id, e){
+    document.querySelectorAll('.content-section,.lesson-page').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    if(e&&e.target)e.target.classList.add('active');
+    sendTracking('NAVIGAZIONE', `Sezione: ${id}`);
+}
 
-        for (let i = 1; i <= 6; i++) {
-            const lessonKey = `${storageKey}_lesson${i}`;
-            const saved = localStorage.getItem(lessonKey);
-            if (saved) {
-                const data = JSON.parse(saved);
-                completedChecks += (data.spiegazione ? 1 : 0) + (data.video ? 1 : 0) + (data.esercizio ? 1 : 0);
-            }
+function openLesson(num){
+    document.getElementById('home').classList.remove('active');
+    document.getElementById(`lesson-${num}`).classList.add('active');
+    loadLessonState(num);
+    sendTracking('LEZIONE', `Aperta lezione ${num}`);
+}
+
+function backToHome(){
+    document.querySelectorAll('.lesson-page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('home').classList.add('active');
+}
+
+function toggleCheck(el, lessonNum, type){
+    el.classList.toggle('checked');
+    const key = `student_${studentData.id}_lesson${lessonNum}_${type}`;
+    const checked = el.classList.contains('checked');
+    localStorage.setItem(key, checked?'1':'0');
+    el.querySelector('.mini-checkbox').textContent = checked?'✓':'';
+    updateLessonCompletion(lessonNum);
+    updateProgress();
+    if(checked) sendTracking('CHECKLIST', `Lezione ${lessonNum} - ${type}`);
+}
+
+function loadLessonState(num){
+    ['spiegazione','video','esercizio'].forEach(type=>{
+        const key = `student_${studentData.id}_lesson${num}_${type}`;
+        const checked = localStorage.getItem(key)==='1';
+        const el = document.querySelector(`#lesson-${num} .sidebar-check[onclick*="${type}"]`);
+        if(el){
+            el.classList.toggle('checked', checked);
+            el.querySelector('.mini-checkbox').textContent = checked?'✓':'';
         }
+    });
+}
 
-        const percentage = Math.round((completedChecks / totalChecks) * 100);
-        const progressFill = document.getElementById('overall-progress');
-        progressFill.style.width = percentage + '%';
-        progressFill.textContent = percentage + '%';
-        
-        // Invia aggiornamento progresso
-        if (percentage > 0) {
-            sendToTracking('PROGRESSO', `Completamento: ${percentage}%`);
+function updateLessonCompletion(num){
+    let count = 0;
+    ['spiegazione','video','esercizio'].forEach(type=>{
+        if(localStorage.getItem(`student_${studentData.id}_lesson${num}_${type}`)==='1') count++;
+    });
+    localStorage.setItem(`student_${studentData.id}_lesson${num}_completed`, count);
+}
+
+function updateProgress(){
+    if(!studentData.id) return;
+    let total = 0;
+    for(let i=1; i<=6; i++){
+        total += parseInt(localStorage.getItem(`student_${studentData.id}_lesson${i}_completed`)||0);
+    }
+    const pct = Math.round((total/18)*100);
+    const bar = document.getElementById('overall-progress');
+    bar.style.width = pct+'%';
+    bar.textContent = pct+'%';
+    
+    for(let i=1; i<=6; i++){
+        const completed = parseInt(localStorage.getItem(`student_${studentData.id}_lesson${i}_completed`)||0);
+        const card = document.querySelector(`.lesson-card[data-lesson="${i}"]`);
+        const checkbox = card.querySelector('.lesson-checkbox');
+        if(completed===3){
+            card.classList.add('completed');
+            checkbox.textContent = '✓';
+        } else {
+            card.classList.remove('completed');
+            checkbox.textContent = '';
         }
     }
+    
+    if(pct>0) sendTracking('PROGRESSO', `Completamento: ${pct}%`);
+}
 
-    function showMainSection(sectionId, event) {
-        document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
-        document.getElementById(sectionId).classList.add('active');
-        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-        if (event && event.target) event.target.classList.add('active');
-        sendToTracking('NAVIGAZIONE', `Sezione: ${sectionId}`);
-    }
-
-    function openLesson(num) {
-        sendToTracking('LEZIONE', `Aperta lezione ${num}`);
-    }
-
-    document.addEventListener('DOMContentLoaded', initStudent);
+document.addEventListener('DOMContentLoaded', initStudent);
 </script>
 </body>
 </html>
